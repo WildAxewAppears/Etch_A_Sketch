@@ -17,3 +17,10 @@ body {
 
 }
 
+.gameDivs {
+        width: 37.5px;
+        height: 37.5px;
+        border: 1px solid #ccc;
+        background-color: white;
+        box-sizing: border-box;
+}
