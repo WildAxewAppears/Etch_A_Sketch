@@ -6,3 +6,12 @@ for (let i=0; i < starterGrid; i++){
         newDiv.classList.add("gameDivs")
         container.appendChild(newDiv)
     }
+
+const gameDiv = document.querySelectorAll(".gameDivs")
+
+gameDiv.forEach((div) => {
+   
+    div.addEventListener("mouseover", () => {
+        div.style.backgroundColor = "red"
+    });
+  });
