@@ -14,16 +14,17 @@ body {
     width: 600px;
     border-style: solid;
     border-color: black;
+    box-shadow: 5px 5px 15px rgb(157, 157, 157);
 
 }
-.gameDivs2 {
+.newGridDivs {
     border: 1px solid #ccc;
     background-color: white;
     box-sizing: border-box;
 
 }
 
-.gameDivs {
+.newGameDiv {
         width: 37.5px;
         height: 37.5px;
         border: 1px solid #ccc;
@@ -37,7 +38,17 @@ body {
     align-items: center;
 }
 
-#newGrid {
+.pulsanti  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+button{
+    border-radius: 5px;
+    margin-left:  50px;
+    margin-right: 50px;
     height: 50px;
     width: 100px;
     margin-bottom: 5px;

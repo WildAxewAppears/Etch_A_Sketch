@@ -1,16 +1,17 @@
 const container = document.querySelector("#container");
 const starterGrid = 16*16;
 const newGrid = document.querySelector("#newGrid");
+const resetButton = document.querySelector("#reset");
 
 for (let i=0; i < starterGrid; i++){
         const newDiv = document.createElement("div");
-        newDiv.classList.add("gameDivs");
+        newDiv.classList.add("newGameDiv");
         container.appendChild(newDiv);
     };
 
-const gameDiv = document.querySelectorAll(".gameDivs")
+const StarteGameDiv = document.querySelectorAll(".newGameDiv")
 
-gameDiv.forEach((div) => {
+StarteGameDiv.forEach((div) => {
     if (!div.dataset.brightness) {
         div.dataset.brightness = 100;
     }
@@ -36,7 +37,7 @@ gameDiv.forEach((div) => {
 
   function createNewGrid() {
     let askNumber = prompt("Enter a Grid Size: (Max 100px)");
-    if (isNaN(askNumber) || askNumber === "" || askNumber >= 100) {
+    if (isNaN(askNumber) || askNumber === "" || askNumber >= 100 || askNumber == null) {
         alert("Invalid input. Please enter a number less than 100.");
         return;
     } else {
@@ -47,7 +48,7 @@ gameDiv.forEach((div) => {
         const gridNumber = askNumber * askNumber;
         for (let i = 0; i < gridNumber; i++) {
             const newDiv = document.createElement("div");
-            newDiv.classList.add("gameDivs2");
+            newDiv.classList.add("newGridDivs");
 
             newDiv.style.cssText = `
                 width: calc(100% / ${askNumber});
@@ -57,8 +58,12 @@ gameDiv.forEach((div) => {
             container.appendChild(newDiv);
         }
 
-        const gameDiv2 = document.querySelectorAll(".gameDivs2");
-        gameDiv2.forEach((div) => {
+        const newGridGameDiv = document.querySelectorAll(".newGridDivs");
+        newGridGameDiv.forEach((div) => {
+            if (!div.dataset.brightness) {
+                div.dataset.brightness = 100;
+            }
+
             div.addEventListener("mouseover", () => {
                 const r = Math.floor(Math.random() * 256);
                 const g = Math.floor(Math.random() * 256);
@@ -79,3 +84,15 @@ gameDiv.forEach((div) => {
 }
 
 newGrid.addEventListener("click", createNewGrid);
+
+function reset (){
+    const actualGrid = document.querySelectorAll("#container div");
+    actualGrid.forEach((div) => {
+        div.style.backgroundColor = "white"
+        div.dataset.brightness = 100
+        let currentBrightness = div.dataset.brightness;
+        div.style.filter = `brightness(${currentBrightness}%)`;
+})
+}
+
+resetButton.addEventListener("click", reset)
