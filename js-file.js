@@ -13,7 +13,10 @@ const gameDiv = document.querySelectorAll(".gameDivs")
 gameDiv.forEach((div) => {
    
     div.addEventListener("mouseover", () => {
-        div.style.backgroundColor = "red"
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        div.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
     });
   });
 
@@ -43,7 +46,10 @@ gameDiv.forEach((div) => {
         const gameDiv2 = document.querySelectorAll(".gameDivs2");
         gameDiv2.forEach((div) => {
             div.addEventListener("mouseover", () => {
-                div.style.backgroundColor = "red";
+                const r = Math.floor(Math.random() * 256);
+                const g = Math.floor(Math.random() * 256);
+                const b = Math.floor(Math.random() * 256);
+                div.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
             });
         });
     }
