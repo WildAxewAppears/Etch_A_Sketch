@@ -11,12 +11,26 @@ for (let i=0; i < starterGrid; i++){
 const gameDiv = document.querySelectorAll(".gameDivs")
 
 gameDiv.forEach((div) => {
+    if (!div.dataset.brightness) {
+        div.dataset.brightness = 100;
+    }
    
     div.addEventListener("mouseover", () => {
         const r = Math.floor(Math.random() * 256);
         const g = Math.floor(Math.random() * 256);
         const b = Math.floor(Math.random() * 256);
+        
         div.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+        if(div.dataset.brightness != 0){
+
+        let currentBrightness = div.dataset.brightness;
+        currentBrightness = currentBrightness - 10;
+        div.dataset.brightness = currentBrightness;
+        div.style.filter = `brightness(${currentBrightness}%)`;
+
+        }
+        
+        
     });
   });
 
@@ -50,6 +64,15 @@ gameDiv.forEach((div) => {
                 const g = Math.floor(Math.random() * 256);
                 const b = Math.floor(Math.random() * 256);
                 div.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+
+                if(div.dataset.brightness != 0){
+
+                    let currentBrightness = div.dataset.brightness;
+                    currentBrightness = currentBrightness - 10;
+                    div.dataset.brightness = currentBrightness;
+                    div.style.filter = `brightness(${currentBrightness}%)`;
+            
+                    }
             });
         });
     }
